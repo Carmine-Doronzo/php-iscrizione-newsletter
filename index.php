@@ -2,9 +2,20 @@
 <?php 
 
     function getEmail(){
+        
+        $email = $_POST['email'] ?? null;
+        //var_dump($email);
+        
+        if(str_contains($email,'@') && str_contains($email,'.')){
+            echo '<p>accesso garantito</p>';
+        }else{
+            echo '<p>acesso negato</p>';
+        }
 
+        return $email;
+    
     }
-
+    //var_dump($email);
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +31,13 @@
     <main>
 
         <form action="" method="POST">
+            <!-- ho messo un input di tipo text perchè l'input di tipo email fa già il controllo sulla @ e il .  -->
             <label for="email">Email</label>
-            <input type="email" name="email" id="" placeholder="Inserisci la tua email">
+            <input type="text" name="email" id="" placeholder="Inserisci la tua email">
             <input type="submit">
         </form>
+
+        <p> <?php echo getEmail() ?></p>
 
     </main>
     
