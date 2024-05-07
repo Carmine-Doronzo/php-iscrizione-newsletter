@@ -1,14 +1,15 @@
 <?php
+include __DIR__ . '/utilities.php';
 
 session_start();
 $email = $_SESSION['email'];
-include __DIR__ . '/utilities.php';
 
-session_unset();
-if ($email === null) {
-    header('Location: ./index.php');
-}
-//header('Location: ./index.php')
+//var_dump($email);
+//var_dump(getEmail());
+
+
+
+
 ?>
 
 
@@ -23,15 +24,15 @@ if ($email === null) {
 </head>
 
 <body>
-    <main>
-        <div class="alert alert-primary" role="alert">
+    <main class="d-flex flex-column align-items-center py-5">
+        <div class="alert alert-primary " role="alert">
             <?php echo $email ?>
         </div>
 
 
         <div>
             <?php
-            if (getEmail() === true) {
+            if (getEmail() !== false) {
             ?>
                 <div class="alert alert-success" role="alert">
                     Accesso garantito
@@ -54,6 +55,12 @@ if ($email === null) {
     <?php
 
     include __DIR__ . '/footer.php';
+    
+    session_unset();
+    if ($email === null) {
+        
+        header('Location: ./index.php');
+    }
 
     ?>
 </body>

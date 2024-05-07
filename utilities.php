@@ -2,8 +2,8 @@
 
 function getEmail()
 {
-
-    $email = $_POST['email'] ?? null;
+    //session_start();
+    $email = $_SESSION['email'] ?? null;
     //var_dump($email);
     $event = null;
     

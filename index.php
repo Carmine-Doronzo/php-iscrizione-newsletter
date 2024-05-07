@@ -1,9 +1,10 @@
 <?php
-
-
+//include __DIR__ . '/utilities.php';
+$email = $_POST['email'] ?? null;
+//var_dump($email);
 session_start();
 
-$email = $_POST['email'] ?? null;
+
 
 $_SESSION['email'] = $email;
 
@@ -26,26 +27,30 @@ if ($email !== null) {
 </head>
 
 <body>
-    <?php
+    <div class="container">
+        <div class="row ">
+            <?php
 
-    include __DIR__ . '/header.php';
+            include __DIR__ . '/header.php';
 
-    ?>
+            ?>
 
-    <main>
-
-
+            <main>
 
 
 
-    </main>
 
-    <?php
 
-    include __DIR__ . '/footer.php';
+            </main>
 
-    ?>
+           
+        </div>
+        <?php
 
+            include __DIR__ . '/footer.php';
+
+        ?>
+    </div>
 </body>
 
 </html>
