@@ -1,4 +1,5 @@
 <?php
+$email = $_POST['email'];
 include __DIR__ . '/utilities.php';
 
 
@@ -21,6 +22,7 @@ include __DIR__ . '/utilities.php';
 
         <form action="" method="POST">
             <!-- ho messo un input di tipo text perchè l'input di tipo email fa già il controllo sulla @ e il .  -->
+
             <!-- <label for="email">Email</label> -->
             <!-- <input type="text" name="email" id="" placeholder="Inserisci la tua email"> -->
             <div class="input-group mb-3">
@@ -30,23 +32,29 @@ include __DIR__ . '/utilities.php';
 
             <input type="submit" class="btn btn-primary">
         </form>
+        
+        <div class="alert alert-primary" role="alert">
+            <?php echo $email ?>
+        </div>
 
-        <p>
+
+        <div>
             <?php
-            if (getEmail() === true) {
+                if (getEmail() === true) {
             ?>
-        <div class="alert alert-success" role="alert">
-            Accesso garantito
+                <div class="alert alert-success" role="alert">
+                    Accesso garantito
+                </div>
+            <?php
+                } else {
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    Accesso negato
+                </div>
+            <?php
+                }
+            ?>      
         </div>
-    <?php
-            } else {
-    ?>
-        <div class="alert alert-danger" role="alert">
-            Accesso negato
-        </div>
-    <?php
-            }
-    ?></p>
 
     </main>
 
