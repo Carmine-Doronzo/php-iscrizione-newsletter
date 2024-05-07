@@ -1,14 +1,12 @@
 <?php
-include __DIR__ . '/utilities.php';
+    
+    require_once __DIR__ . '/utilities.php';
 
-session_start();
-$email = $_SESSION['email'];
+    session_start();
+    $email = $_SESSION['email'] ?? null;
 
-//var_dump($email);
-//var_dump(getEmail());
-
-
-
+    //var_dump($email);
+    //var_dump(getEmail());
 
 ?>
 
@@ -29,18 +27,19 @@ $email = $_SESSION['email'];
             <?php echo $email ?>
         </div>
 
-
         <div>
             <?php
-            if (getEmail() !== false) {
+                if (getEmail() !== false) {
             ?>
+                
                 <div class="alert alert-success" role="alert">
                     Accesso garantito
                 </div>
 
             <?php
 
-            } else {
+                } else {
+
             ?>
 
                 <div class="alert alert-danger" role="alert">
@@ -48,19 +47,22 @@ $email = $_SESSION['email'];
                 </div>
 
             <?php
-            }
+
+                }
+
             ?>
         </div>
     </main>
     <?php
 
-    include __DIR__ . '/footer.php';
+        include __DIR__ . '/footer.php';
     
-    session_unset();
-    if ($email === null) {
+        session_unset();
+        if ($email === null) {
         
-        header('Location: ./index.php');
-    }
+            header('Location: ./index.php');
+
+        }
 
     ?>
 </body>

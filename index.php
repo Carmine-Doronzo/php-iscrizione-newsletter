@@ -1,19 +1,17 @@
 <?php
 //include __DIR__ . '/utilities.php';
+
 $email = $_POST['email'] ?? null;
+
 //var_dump($email);
+
 session_start();
-
-
 
 $_SESSION['email'] = $email;
 
 if ($email !== null) {
     header('Location: ./subscription.php');
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -34,16 +32,7 @@ if ($email !== null) {
             include __DIR__ . '/header.php';
 
             ?>
-
-            <main>
-
-
-
-
-
-            </main>
-
-           
+   
         </div>
         <?php
 
