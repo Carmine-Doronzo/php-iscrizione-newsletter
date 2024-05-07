@@ -1,6 +1,15 @@
 <?php
+
+
+session_start();
+
 $email = $_POST['email'] ?? null;
-include __DIR__ . '/utilities.php';
+
+$_SESSION['email'] = $email;
+
+if ($email !== null) {
+    header('Location: ./subscription.php');
+}
 
 
 
@@ -17,44 +26,23 @@ include __DIR__ . '/utilities.php';
 </head>
 
 <body>
-    <?php 
-    
-    include __DIR__.'/header.php';
+    <?php
+
+    include __DIR__ . '/header.php';
 
     ?>
 
     <main>
 
-        
-        
-        <div class="alert alert-primary" role="alert">
-            <?php echo $email ?>
-        </div>
 
 
-        <div>
-            <?php
-                if (getEmail() === true) {
-            ?>
-                <div class="alert alert-success" role="alert">
-                    Accesso garantito
-                </div>
-            <?php
-                } else {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    Accesso negato
-                </div>
-            <?php
-                }
-            ?>      
-        </div>
+
 
     </main>
 
-    <?php 
-    
-    include __DIR__.'/footer.php';
+    <?php
+
+    include __DIR__ . '/footer.php';
 
     ?>
 
